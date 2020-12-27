@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <p id="para">test</p>
+    </div>
+
+
+    <a href="https://www.microsoft.com" id="link">导航到微软公司网站</a>
+    <input type="text" id="txtName">
+    <script>
+        const box = document.querySelector('#box')
+        const para = document.querySelector('#para')
+
+        const callback = (event) => {
+            // console.clear()
+            // 1:捕获阶段   2：目标阶段   3：冒泡阶段
+            console.log(`标记名：${event.currentTarget.tagName},
+                        传播阶段：${event.eventPhase}`)
+        }
+        // 在捕获阶段处理
+        box.addEventListener('click',callback,true)
+        // para.addEventListener('click',callback,true)
+        // 在冒泡阶段处理
+        box.addEventListener('click',callback,false)
+        para.addEventListener('click',callback,false)
+
+
+        const link = document.querySelector('#link')
+        // 添加事件监听器
+        link.addEventListener('click',(e) => {
+            // 阻止默认行为
+            if (e.cancelable){
+                e.preventDefault()
+            }
+            // 查看是否成功
+            console.log(e.defaultPrevented)
+            console.log('you click link')
+        })
+
+        const txtName = document.querySelector('#txtName')
+        txtName.addEventListener('keypress',(e) => {
+            // 不允许大写字母输入
+            if(e.charCode < 97 || e.charCode > 122){
+                e.preventDefault()
+            }
+        })
+    </script>
+</body>
+</html>

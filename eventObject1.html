@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            background-color: skyblue;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            background-color: steelblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2">Click me</div>
+    </div>
+
+    <script>
+        const box = document.querySelector('#box2')
+        box.addEventListener('click',(e) => {
+            // 控制台清除
+            console.clear()
+            console.log(`clientX = ${e.clientX},clientY = ${e.clientY}`)
+            console.log(`screenX = ${e.screenX},screenY = ${e.screenY}`)
+            console.log(`offsetX = ${e.offsetX},offsetY = ${e.offsetY}`)
+            console.log(`pageX = ${e.pageX},pageY = ${e.pageY}`)
+            console.log(`X = ${e.X},Y = ${e.Y}`)
+            console.log(`layerX = ${e.layerX},layerY = ${e.layerY}`)
+        },true)
+
+        const callback = function (event) {
+            switch (event.type) {
+                case "mouseover":
+                    event.target.style.backgroundColor = 'red'
+                    break;
+                case "mouseout":
+                    event.target.style.backgroundColor = "blue"
+                    break;
+            }
+        }
+        box.addEventListener("mouseover", callback)
+        box.addEventListener('mouseout',callback)
+    </script>
+</body>
+</html>

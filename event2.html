@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id='btnTest1'>click me</button>
+    <button id="btnTest2" onclick='console.log("test")'>click me 2</button>
+    <script>
+        const myButton = document.querySelector('#btnTest1')
+       /*
+       
+        myButton.onclick = function () {
+            console.log('onclick')
+        }
+
+        // 通过这种方式只能设置一个事件处理程序。
+        myButton.onclick = function() {
+            console.log('hello')
+        }
+        //myButton.onclick = null   // 去掉绑定
+        */
+        
+        const callback = () => {
+            console.log('callback1')
+        }
+        const callback2 = () => {
+            console.log('callback2')
+        }
+        const callback3 = () => {
+            console.log('callback3')
+        }
+
+        myButton.addEventListener('click', callback)
+        myButton.addEventListener('click', callback2)
+        myButton.addEventListener('click', callback3)
+
+        //myButton.removeEventListener('click',callback, false)
+    </script>
+
+</body>
+</html>

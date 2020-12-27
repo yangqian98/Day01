@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"><a href="#">test</a></div>
+    <script>
+        const box = document.querySelector('#box')
+        // 设置 捕获阶段
+        // 如果要让 windows 在捕获阶段处理，就需要在后面加一个 true。
+        // 默认是在冒泡阶段处理，如果不加或加 false,则会在冒泡阶段
+        window.addEventListener('click',() => {
+            console.log(`==> windows 的捕获阶段`)
+        },true)
+        document.addEventListener('click',() => {
+            console.log(`==> douctment 的捕获阶段`)
+        },true)
+        document.documentElement.addEventListener('click',() => {
+            console.log(`==> html 的捕获阶段`)
+        },true)
+        document.body.addEventListener('click',(e) => {
+            console.log(`==> body 的捕获阶段`)
+            // 绑定多个事件处理程序后，当传播至这里后面绑定的相同的还可以传播
+            // e.stopPropagation()
+            // 绑定多个事件处理程序后，到这里包括后面的事件全部停止
+            e.stopImmediatePropagation()
+        },true)
+        box.addEventListener('click',(e) => {
+            console.log(`==> box 的捕获阶段`)
+        },true)
+
+        // 设置 冒泡阶段
+        window.addEventListener('click',() => {
+            console.log(`==> windows 的冒泡阶段`)
+        },false)
+        document.addEventListener('click',() => {
+            console.log(`==> douctment 的冒泡阶段`)
+        },false)
+        // 获取 html 元素
+        document.documentElement.addEventListener('click',() => {
+            console.log(`==> html 的冒泡阶段`)
+        },false)
+        document.body.addEventListener('click',() => {
+            console.log(`==> body 的冒泡阶段`)
+        },false)
+        box.addEventListener('click',() => {
+            console.log(`==> box 的冒泡阶段`)
+        },false)
+    </script>
+</body>
+</html>

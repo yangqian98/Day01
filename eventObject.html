@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">test</div>
+    <script>
+        const box = document.querySelector('#box')
+        // 设置回调函数
+        const callback = (e) => {
+            console.log(e)
+            for (let prop in e){
+                console.log(prop)
+            }
+        }
+        // 绑定到一个点击事件
+        box.addEventListener('click',callback)
+
+
+        // 创建一个自定义事件
+        // 步骤一
+        const helloEvent = new Event('hello',{bubbles:true,cancelable:false})
+        // const helloEvent = new customEvent('hello',{bubbles:true, cancelable:false})
+
+        // 步骤二
+        const helloCallback = (event) => {
+            box.textContent = 'hello,event'
+        }
+        box.addEventListener('hello',helloCallback)
+        // 步骤三：指派事件
+
+        document.body.addEventListener('hello',()=>{
+            console.log('hello')
+        })
+
+        box.dispatchEvent(helloEvent)
+    </script>
+</body>
+</html>
