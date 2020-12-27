@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="Books">
+        <li>JavaScript1</li>
+        <li>python</li>
+        <li>AI</li>
+        <li>Android</li>
+    </ul>
+
+    <script>
+        const books = document.querySelector("#Books")
+        /* 为 books 设置样式属性 */
+        
+/*         // 方式一：设置边框属性
+        books.setAttribute("style","border:1px skyblue solid")
+ */
+
+/*         // 方式二：其他属性
+        books.style.color = 'red'
+        books.style.backgroundColor = 'green'   // background-color:green
+        books.style.bodyStyle = 'dotted'    // border-style:dotted
+        books.style.cssFloat = 'right'   // float : right
+ */
+
+        books.setAttribute("style","border:1px skyblue solid")
+        console.log(books.style.border)   // 结果：1px skyblue solid
+    </script>
+</body>
+</html>

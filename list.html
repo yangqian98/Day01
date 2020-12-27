@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bookName,#btnAdd1,#btnDel{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <ul id="books">
+        <li>Java</li>
+        <li>Python</li>
+    </ul>
+    <input type="text" id="bookName">
+    <button id="btnAdd">+</button>
+    <button id="btnDel">-</button><br>
+    <input type="text" id="bookName1">
+    <button id="btnAdd1">+</button>
+    <button id="btnDel1">-</button><br>
+    <input type="text" id="bookName1">
+    <button id="btnAdd1">+</button>
+    <button id="btnDel1">-</button>
+
+    <script>
+        const books = document.querySelector("#books")
+        const bookName = document.querySelector("#bookName")
+        const btnAdd = document.querySelector("#btnAdd")
+        const btnDel = document.querySelector("#btnDel")
+        const bookName = document.querySelector("#bookName")
+        const btnAdd = document.querySelector("#btnAdd")
+        const btnDel = document.querySelector("#btnDel")
+
+        const addBoooks = () => {
+            /* 创建 li 结点 */
+            const OElement = document.createElement("li")
+            /* 创建 文本 结点 */
+            const oText = document.createTextNode(bookName.value)
+            books.appendChild(OElement)  // 将 li 子结点添加到 ul 结点中
+            OElement.appendChild(oText) // 将 文本 结点添加到 li 结点中
+            bookName.value = ""      // 将添加好内容的对话框中的内容清除
+        }
+        const delBooks = () => {
+            // 判断元素是否有元素子结点：hasChildNodes()
+            if (books.hasChildNodes()){
+                books.removeChild(books.lastElementChild)   // 删除所有元素结点的最后一个
+            }
+        }
+        /* 添加事件监听器 */
+        /* 时间处理程序，将其绑定到 btnAdd 这个 添加 按钮上 */
+        btnAdd.addEventListener("click",addBoooks)
+        /* 时间处理程序，将其绑定到 btnAdd 这个 删除 按钮上 */
+        btnDel.addEventListener("click",delBooks)
+    </script>
+</body>
+</html>

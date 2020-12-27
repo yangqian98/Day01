@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #lstBooks .book{
+            border: 1px red solid;
+        }
+        #lstBooks :nth-child(3){
+            color: red;
+        }
+        #lstBooks {
+            background-color: red;
+        }
+        #lstBooks1 {
+            background-color: skyblue;
+        }
+
+    </style>
+</head><body>
+        <!-- ul#lstBooks>li*4 : 快捷书写一个包含四个 li 的 ID 为 lstBooks 的 ul  -->
+        <ul id="lstBooks">
+            <li>JavaScript1</li>
+            <li class="book">python</li>
+            <li>AI</li>
+            <li class="book">Android</li>
+        </ul>
+        <script>
+            // /* 返回一个元素结点 */
+            // const oList1 = document.querySelector("#lstBooks");
+            // console.log(oList1.innerHTML);
+            // console.log(oList1.nodaType);
+            // console.log(oList1.nodeName);
+            // console.log(oList1.nodeValue);
+
+            // console.log("-------------------------------")
+
+            // /* 查看结点类型 */
+            // console.log(oList1.firstChild.nodeType)
+            // console.log(oList1.firstElementChild.nodeType)
+            
+            // console.log(document.doctype.nextSibling.innerHTML)   /* 找到 HTML 的内容 */
+            // /* firstElementChild：第一个元素结点（包含于上一层）
+            //    nextSibling：下一个邻居元素结点（与上一层相邻）
+            //    空格也被认为是一个结点
+            // */
+            // console.log(document.doctype.nextSibling.firstElementChild.nextSibling.innerHTML)   /* 找到 JavaScript 的内容 */
+
+            // console.log("-------------------------------")
+
+            // /* 获取一个元素（方式一） */
+//            const oList = document.getElementById("lstBooks")
+//            const oItem = document.getElementsByTagName("li")
+//            console.log(oItem.length)    // 结果：4
+            /* 方式二：获取一个元素（通过类名---getElementsByClassName） */
+//            const oItem1 = document.getElementsByClassName("book")
+//            console.log(oItem1.length)  // 长度——结果：2
+            /* 删除元素再看结果 */
+//            oList1.removeChild(oList.lastChild)   // 有空格
+//            console.log(oItem.length)      // 结果：3
+            /* 获取一个元素 */
+            // const oList2 = document.querySelector("#lstBooks")
+            // console.log(oList2.innerHTML)
+
+            /* 获取一个元素：查询选择器 */
+            const oItem2 = document.querySelector('#lstBooks .book')
+            console.log(oItem2.innerHTML) 
+
+            /* 获取所有结点 */
+            const oLists = document.querySelectorAll('#lstBooks .book')
+            // console.log(oLists)
+            console.log(oLists.length)   // 结果：2
+
+            /*删除子结点 */
+            const oList3 = document.querySelector("#lstBooks");
+            oList3.removeChild(document.querySelector("#lstBooks :nth-child(3)"))
+            console.log(oList3.length)   // 结果：2
+
+
+            /* 设置属性和方法 */
+            const oList4 = document.querySelector("#lstBooks")
+            
+
+        </script>
+</body>
+</html>
