@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM(浏览器对象模型)</title>
+</head>
+<body>
+    <!-- <script>
+        for (let a in window) {
+            console.log(a)
+        }
+    </script> -->
+
+    <button>click me</button>
+
+    <script>
+        const oButton = document.querySelector('button');
+        let a = window.open('keyboardEvents.html','打开一个窗口演示')
+
+        oButton.addEventListener('click',(e) => {
+            // alert()
+            // alert('hello!javaScript');
+
+            // confirm()
+//            let msg = confirm('是否真的要删除这条记录');
+//            alert(msg);
+
+            // prompt()
+//            let msg = prompt('请输入用户名：','admain');
+//            alert(msg);
+
+
+            // for (let n in window.navigator) {
+            //     console.log(n);
+            // }
+
+
+            // console.log(location.href);
+            // console.log(location.protocol);
+            // console.log(location.host)
+            // console.log(location.hostname)
+            // console.log(location.port)
+            // console.log(location.pathname)
+            // console.log(location.search)
+            // console.log(location.hash)
+            //console.log(location.origin)
+
+
+            /* true：强制从服务器上重新加载   false：*/
+            // location.reload(true);
+
+            /* 可以回退：历史记录能够查到 */
+            // location.assign('keyboardEvents.html');
+
+            /* 不可回退：历史记录查询不到 */
+            // location.replace('keyboardEvents.html');
+
+           // alert(location.toString())
+            //location.assign('keyboardEvents.html')
+
+            // history.go(0);
+            // history.go(-1);    // 回退
+            // history.go(1);    // 向前
+            // history.back();
+            // history.forward();
+
+
+            /* 在窗口中打开某一文件 */
+            var a = window.open('键盘事件.html','打开一个窗口演示');
+            a.moveTo(100,200)
+            // a.close();   // 点击按钮后快速关闭了
+
+        })
+    </script>
+</body>
+</html>

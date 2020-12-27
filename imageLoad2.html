@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>图片加载</title>
+</head>
+<body>
+    <img src="./title.png" alt="Logo">
+    <a href="./点击事件.html">点我</a>
+
+    <script>
+        window.addEventListener('load',(e) => {
+            alert('test');
+        })
+
+        // 元素选择器
+        const oImg = document.querySelector('img'); 
+
+        oImg.addEventListener('load',(e) => {
+            alert('图片加载之前弹出');
+        })
+
+        oImg.addEventListener('error',(e) => {
+            alert('朋友，图片不存在!');
+        })
+
+        window.addEventListener('unload',(e) => {
+            alert('unload');
+        })
+    </script>
+</body>
+</html>

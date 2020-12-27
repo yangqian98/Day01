@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托示例</title>
+    <style>
+        .box{
+            background-color: skyblue;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li>Java</li>
+        <li>javaScript</li>
+        <li>Python</li>
+        <li>C#</li>
+    </ul>
+    <input type="text" id='txtCourse' />
+    <button id='btnAdd'>+</button>
+    <button id='btnDel'>-</button>
+
+    <script>
+        // 事件：mouseover(鼠标放在元素上时)/mouseout(鼠标拿开时)
+        const oList = document.querySelector('#list');
+        const oCourse = document.querySelector('#txtCourse')
+
+        oList.addEventListener('mouseover',(e) => {
+            if (e.target != e.currentTarget){
+                e.target.classList.add('box');           
+             }
+        })
+
+        oList.addEventListener('mouseout',(e) =>{
+            e.target.classList.remove('box');
+        })
+
+        document.querySelector('#btnAdd').addEventListener('click', (event) => {
+            let strCourse = oCourse.value
+            if (strCourse.length > 0) {
+                let oItem = document.createElement('li')
+                oItem.textContent = strCourse
+                oList.append(oItem)
+                oCourse.value = ''
+            }
+        })
+
+        document.querySelector('#btnDel').addEventListener('click', () => {
+            if (oList.childElementCount > 0) {
+                oList.lastElementChild.remove()
+            }
+        })
+
+    </script>
+</body>
+</html>

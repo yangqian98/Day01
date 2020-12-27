@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标右键上下文菜单</title>
+    <style>
+        #box {
+            border: 1px red solid;
+        }
+        #menu {
+            visibility: hidden;
+            /* 绝对定位 */
+            position: absolute;  
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </div>
+    <ul id="menu">
+        <li>增加</li>
+        <li>删除</li>
+        <li>修改</li>
+    </ul>
+
+    <script>
+        // window 加载时就要触发事件
+        window.addEventListener('load',(e) => {
+            const div = document.querySelector('#box');
+
+            div.addEventListener('contextmenu',(e) => {
+                // 阻止 windows 右键事件的默认行为
+                e.preventDefault();
+
+                let menu = document.querySelector('#menu');
+                menu.style.left = e.clientX + 'px';
+                menu.style.top = e.clientY + 'px';
+                menu.style.visibility = 'visible';
+            });
+
+            document.addEventListener('click',(e) => {
+                document.querySelector('#menu').style.visibility = 'hidden';
+            });
+        });
+    </script>
+</body>
+</html>
